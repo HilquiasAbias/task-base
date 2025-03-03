@@ -1,0 +1,29 @@
+<div id="sidebar-container" :class="{'expanded': sidebarExpanded}">
+    {% verbatim %}
+    <div class="sidebar p-3">
+        <h3 class="mb-4">Dashboard</h3>
+        <div class="mb-3">
+            <select class="search-select form-control">
+                <option value="">Pesquisar...</option>
+                <option v-for="(item, index) in searchItems" :key="index" :value="item.id">
+                    {{ item.name }}
+                </option>
+            </select>
+        </div>
+
+        <ul class="nav flex-column">
+            <li class="nav-item" v-for="(item, index) in menuItems" :key="index">
+                <a class="nav-link text-white" @click="openModalWithContent(item)">{{ item }}</a>
+            </li>
+        </ul>
+
+        <div class="sidebar-modal" :class="{'open': modalOpen}">
+            <div class="modal-content">
+                <button class="btn btn-sm btn-close btn-close-white mb-3" @click="toggleSidebarModal"></button>
+                <h5>{{ modalTitle }}</h5>
+                <p>Conteúdo relacionado à seção: {{ modalTitle }}</p>
+            </div>
+        </div>
+    </div>
+    {% endverbatim %}
+</div>

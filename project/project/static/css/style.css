@@ -1,0 +1,32 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 100px;
+    height: 100vh;
+    background: #f8f9fa;
+    transition: all 0.3s;
+    border-right: 1px solid #dee2e6;
+}
+
+.sidebar.expanded {
+    width: 300px;
+}
+
+.content {
+    transition: margin-left 0.3s;
+    padding: 20px;
+}
+
+.topbar {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.btn.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.sidebar-modal {
+    padding: 20px;
+    height: 100%;
+}

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% include 'partials/head.html' %}
+
+<body>
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row">
+                {% include 'partials/sidebar.html' %}
+                {% include 'partials/content.html' %}
+            </div>
+        </div>
+    </div>
+
+    {% include 'partials/foot.html' %}
+</body>
+
+</html>
