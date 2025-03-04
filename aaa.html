@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js"
+          }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="app">{{ message }}</div>
+
+    <script type="module">
+        import { createApp, ref } from 'vue'
+
+        const message = ref('Hello Vue!!!')
+
+        const app = createApp({
+            components: {
+            },
+            setup() {
+                return {
+                    message,
+                }
+            },
+            template: `
+                <div>
+                    <h1>{{ message }}</h1>
+                    <button @click="changeMessage">Click me</button>
+                </div>
+            `,
+            methods: {
+                changeMessage() {
+                    this.message = 'Hello Vue!'
+                }
+            }
+        })
+
+        // Iniciar o app Vue após o carregamento do DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                app.mount('#app');
+                console.log('Vue app mounted successfully');
+            } catch (e) {
+                console.error('Error mounting Vue app:', e);
+            }
+        });
+    </script>
+</body>
+
+</html>
